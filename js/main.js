@@ -62,9 +62,9 @@ class CorridaCarro {
             } else {
                 clearInterval(intervalo);
                 if (blueCarLeft === max) {
-                    this.finalCorrida('azul')
+                    this.finalCorrida('CARRO AZUL')
                 } else if (redCarLeft === max) {
-                    this.finalCorrida('vermelho')
+                    this.finalCorrida('CARRO VERMELHO')
                 }
                 return;
             }
