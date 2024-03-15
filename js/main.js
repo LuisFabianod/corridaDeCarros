@@ -5,6 +5,7 @@ class CorridaCarro {
         this.redCar = document.querySelector('.red-car');
         this.pista = document.querySelector('.pista');
         this.divcontagem = document.querySelector('.contagem');
+        this.form = document.querySelector('.form')
         document.addEventListener('click', e => {
             const el = e.target;
             if (el.classList.contains('start')) {
@@ -19,6 +20,9 @@ class CorridaCarro {
             if (el.classList.contains('choose-red')) {
                 e.preventDefault();
                 this.carroEscolhido = 'vermelho';
+            }
+            if (el.classList.contains('reinicia')) {
+                window.location.reload
             }
         });
     }
@@ -61,9 +65,10 @@ class CorridaCarro {
                 this.redCar.style.marginLeft = `${redCarLeft + this.rand()}px`;
             } else {
                 clearInterval(intervalo);
-                if (blueCarLeft === max) {
+                if (blueCarLeft >= max) {
                     this.finalCorrida('CARRO AZUL')
-                } else if (redCarLeft === max) {
+                }
+                if (redCarLeft >= max) {
                     this.finalCorrida('CARRO VERMELHO')
                 }
                 return;
@@ -72,6 +77,10 @@ class CorridaCarro {
     }
     finalCorrida(carro) {
         this.divcontagem.innerText = `${carro} VENCEU`
+        const botaoReinicia = document.createElement('button')
+        botaoReinicia.innerText = 'Reiniciar'
+        botaoReinicia.classList.add('reinicia')
+        this.form.appendChild(botaoReinicia)
     }
 }
 
