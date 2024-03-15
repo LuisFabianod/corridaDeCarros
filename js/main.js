@@ -4,6 +4,7 @@ class CorridaCarro {
         this.blueCar = document.querySelector('.blue-car');
         this.redCar = document.querySelector('.red-car');
         this.pista = document.querySelector('.pista');
+        this.divcontagem = document.querySelector('.contagem');
         document.addEventListener('click', e => {
             const el = e.target;
             if (el.classList.contains('start')) {
@@ -38,15 +39,14 @@ class CorridaCarro {
     }
 
     contagem(segundos) {
-        const divcontagem = document.querySelector('.contagem');
         let i = segundos;
         const intervalo = setInterval(() => {
             if (i <= 0) {
                 clearInterval(intervalo);
-                divcontagem.innerHTML = 'COMEÇA';
+                this.divcontagem.innerHTML = 'COMEÇA';
                 return;
             }
-            divcontagem.innerHTML = `${i}`;
+            this.divcontagem.innerHTML = `${i}`;
             i--;
         }, 1000);
     }
@@ -71,7 +71,7 @@ class CorridaCarro {
         }, 100);
     }
     finalCorrida(carro) {
-        alert(`${carro} VENCEU`)
+        this.divcontagem.innerText = `${carro} VENCEU`
     }
 }
 
