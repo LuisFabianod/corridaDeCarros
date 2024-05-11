@@ -12,4 +12,4 @@
 
 ![Foto do site](/corridadecarros.png)
 
-[Link para o site](https://corridadecarros.vercel.app)
+- [Link para o site](https://corridadecarros.vercel.app)
